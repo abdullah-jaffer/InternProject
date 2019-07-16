@@ -14,8 +14,8 @@ def main():
 
     for given_word in input_file_list:
 
-        str = remove_multy_occurence(given_word)
-        output_file.write(str)
+        output_file_string = remove_multy_occurence(given_word)
+        output_file.write(output_file_string)
         list_for_first_occurence_removal.append(remove_first_occurence_of_character(given_word))
 
     output_file.write("\nFunction 2:\n")
