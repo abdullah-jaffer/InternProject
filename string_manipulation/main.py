@@ -3,12 +3,11 @@ from helper import remove_first_occurence_of_character
 
 
 def main():
-
     input_file = open("input", "r")
     open('output', 'w').close()
     output_file = open("output", "a+")
 
-    function2_result = ""
+    first_occurence_removal_result = ""
     input_file_list = input_file.readlines()
     output_file.write("Function 1:\n")
 
@@ -16,12 +15,13 @@ def main():
 
         output_file_output = repeating_to_single_string_converter(given_word)
         output_file.write(output_file_output)
-        function2_result = function2_result + remove_first_occurence_of_character(given_word)
+        first_occurence_removal_result = first_occurence_removal_result + remove_first_occurence_of_character(given_word)
 
     output_file.write("\nFunction 2:\n")
-    output_file.write(function2_result)
+    output_file.write(first_occurence_removal_result)
 
 
 if __name__ == "__main__":
     main()
+
 

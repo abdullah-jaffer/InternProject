@@ -1,11 +1,11 @@
 
 
-def repeating_to_single_string_converter(multy_occuring_string):
+def repeating_to_single_string_converter(multi_occuring_string):
     string_after_single_occurence = ""
 
-    for index_for_multy_occurence in multy_occuring_string:
-        if index_for_multy_occurence.lower() not in string_after_single_occurence.lower():
-            string_after_single_occurence = string_after_single_occurence + index_for_multy_occurence
+    for index_for_multi_occurence in multi_occuring_string:
+        if index_for_multi_occurence.lower() not in string_after_single_occurence.lower():
+            string_after_single_occurence = string_after_single_occurence + index_for_multi_occurence
 
     return string_after_single_occurence
 
@@ -21,7 +21,6 @@ def is_repeating(repeating_character_string, key_character):
 
 
 def remove_given_character(input_string, key_character):
-
     index_for_character_removal = input_string.find(key_character)
 
     if index_for_character_removal == 0:
@@ -34,23 +33,23 @@ def remove_given_character(input_string, key_character):
     return input_string
 
 
+def remove_first_occurence_of_character(removing_string):
     """How 'remove_first_occurence_of_character(arg)' work.
 
-    this function first uses 'repeat()' to find repeating characters and then uses
-    'remove_given_character(,)' to remove it's first occurrence
-    'remove_list' keeps tabs of which characters have had there first occurrence removed so it is not removed again
+       this function first uses 'repeat()' to find repeating characters and then uses
+       'remove_given_character(,)' to remove it's first occurrence
+       'remove_list' keeps tabs of which characters have had there first occurrence removed so it is not removed again
     """
-
-
-def remove_first_occurence_of_character(removing_string):
     string_after_removal = ""
     removed_list = []
+
     for index_of_removing_string in removing_string:
         if is_repeating(removing_string, index_of_removing_string) == True\
-                and index_of_removing_string.lower() not in removed_list:
+        and index_of_removing_string.lower() not in removed_list:
             string_after_removal = remove_given_character(removing_string, index_of_removing_string)
             removed_list.append(index_of_removing_string.lower())
             removing_string = string_after_removal
 
     return string_after_removal
+
 
