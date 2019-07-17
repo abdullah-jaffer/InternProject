@@ -1,4 +1,4 @@
-from helper import remove_multy_occurence
+from helper import repeating_to_single_string_converter
 from helper import remove_first_occurence_of_character
 
 
@@ -8,23 +8,20 @@ def main():
     open('output', 'w').close()
     output_file = open("output", "a+")
 
-    list_for_first_occurence_removal = []
+    function2_result = ""
     input_file_list = input_file.readlines()
     output_file.write("Function 1:\n")
 
     for given_word in input_file_list:
 
-        output_file_string = remove_multy_occurence(given_word)
-        output_file.write(output_file_string)
-        list_for_first_occurence_removal.append(remove_first_occurence_of_character(given_word))
+        output_file_output = repeating_to_single_string_converter(given_word)
+        output_file.write(output_file_output)
+        function2_result = function2_result + remove_first_occurence_of_character(given_word)
 
     output_file.write("\nFunction 2:\n")
-
-    for given_word in list_for_first_occurence_removal:
-        output_file.write(given_word)
-
-    output_file.write("\n")
+    output_file.write(function2_result)
 
 
 if __name__ == "__main__":
     main()
+
