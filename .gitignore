@@ -1,2 +1,3 @@
 string_manipulation/venv/
 \nstring_manipulation/.idea/*
+string_manipulation/__pycache__/*
