@@ -1,2 +1,2 @@
 # InternProject
-various python code pieces(unverified) 
+various python code pieces
