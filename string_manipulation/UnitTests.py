@@ -1,12 +1,12 @@
-try:
-    import unittest
-    from helper import repeating_to_single_string_converter
-    from helper import is_repeating
-    from helper import remove_given_character
-    from helper import remove_first_occurence_of_character
-    from ddt import ddt, data, idata, file_data, unpack
-except ImportError:
-    print("module not found")
+import unittest
+
+from ddt import ddt, data, unpack
+
+from helper import is_repeating
+from helper import remove_first_occurrence_of_character
+from helper import remove_given_character
+from helper import repeating_to_single_string_converter
+
 
 @ddt
 class TestStringMethods(unittest.TestCase):
@@ -23,16 +23,14 @@ class TestStringMethods(unittest.TestCase):
 
     @data(["TechCity", "T", "echCity"], ["TechTeam", "m", "TechTea"], ["Umbrella", "e", "Umbrlla"])
     @unpack
-    def test_remove_given_character(self,input_value1, input_value2, output_value):
+    def test_remove_given_character(self, input_value1, input_value2, output_value):
         self.assertEqual(remove_given_character(input_value1, input_value2), output_value)
 
     @data(["TechCity", "ehCity"], ["TechTeam", "chTeam"], ["Umbrella", "Umbrela"], ["Data", "Dta"], ["Google", "ogle"])
     @unpack
-    def test_remove_first_occurence_of_character(self,input_value, output_value):
-        self.assertEqual(remove_first_occurence_of_character(input_value),output_value)
+    def test_remove_first_occurence_of_character(self, input_value, output_value):
+        self.assertEqual(remove_first_occurrence_of_character(input_value), output_value)
 
 
 if __name__ == "__main__":
     unittest.main()
-
-

@@ -1,11 +1,9 @@
-try:
-    from helper import repeating_to_single_string_converter
-    from helper import remove_first_occurence_of_character
-except ImportError:
-    print("module not found")
+from helper import remove_first_occurrence_of_character
+from helper import repeating_to_single_string_converter
 
 
 def main():
+    global input_file, output_file
     try:
         input_file = open("input", "r")
         open('output', 'w').close()
@@ -13,18 +11,18 @@ def main():
     except IOError:
         print("Could not open file")
     else:
-        first_occurence_removal_result = ""
+        first_occurrence_removal_result = ""
         input_file_list = input_file.readlines()
         output_file.write("Function 1:\n")
 
         for given_word in input_file_list:
             output_file_output = repeating_to_single_string_converter(given_word)
             output_file.write(output_file_output)
-            first_occurence_removal_result = first_occurence_removal_result + remove_first_occurence_of_character(
-                given_word)
+            first_occurrence_removal_result = \
+                first_occurrence_removal_result + remove_first_occurrence_of_character(given_word)
 
         output_file.write("\nFunction 2:\n")
-        output_file.write(first_occurence_removal_result)
+        output_file.write(first_occurrence_removal_result)
     finally:
         input_file.close()
         output_file.close()
