@@ -34,7 +34,7 @@ def remove_given_character(input_string, key_character):
 
 
 def remove_first_occurence_of_character(removing_string):
-     """How 'remove_first_occurence_of_character(arg)' works.
+    """How 'remove_first_occurence_of_character(arg)' works.
 
        this function first finds repeating characters and then uses
        removes it's first occurrence
@@ -51,5 +51,3 @@ def remove_first_occurence_of_character(removing_string):
             removing_string = string_after_removal
 
     return string_after_removal
-
-
