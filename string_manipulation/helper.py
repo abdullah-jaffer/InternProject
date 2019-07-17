@@ -34,13 +34,13 @@ def remove_given_character(input_string, key_character):
 
 
 def remove_first_occurence_of_character(removing_string):
-    """How 'remove_first_occurence_of_character(arg)' work.
+     """How 'remove_first_occurence_of_character(arg)' works.
 
-       this function first uses 'repeat()' to find repeating characters and then uses
-       'remove_given_character(,)' to remove it's first occurrence
-       'remove_list' keeps tabs of which characters have had there first occurrence removed so it is not removed again
+       this function first finds repeating characters and then uses
+       removes it's first occurrence
     """
     string_after_removal = ""
+    # the below variable keeps tabs of which characters have had the first occurrence removed so it is not removed again
     removed_list = []
 
     for index_of_removing_string in removing_string:
