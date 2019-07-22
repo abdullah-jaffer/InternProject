@@ -11,6 +11,11 @@ class TweetClassifier:
         self.data_source = data_source
 
     def retrieve_tweets(self):
+        """Tweet Filtering
+
+           This function filters the tweets according to the number and
+           keyword specified by the user and wraps them up in a list
+        """
         tweet_extractor = TweetExtractor(self.data_source)
         tweets = tweet_extractor.get_tweets()
         required_tweets = []
@@ -18,27 +23,32 @@ class TweetClassifier:
 
         for tweet in tweets:
             if self.search_query in tweet and \
-                    tweet_index <= self.tweet_count:
-
+                    tweet_index < self.tweet_count:
                 required_tweets.append(tweet)
                 tweet_index = tweet_index + 1
 
         return required_tweets
 
     def classify_tweets(self):
+        """Tweet classification
+
+           This is the key function that classifies the tweets and puts
+           them in a list along with their assigned classification
+        """
         tweets = self.retrieve_tweets()
-        classification = ""
+        tweet_list = []
         for tweet in tweets:
             if re.search("#+", str(tweet)):
-                classification += "HashTag "
-            if re.search("(https?:\/\/)?([\da-z-]+)\."
+                tweet_list.append([tweet, "HashTag"])
+
+            elif re.search("(https?:\/\/)?([\da-z-]+)\."
                          "([a-z]{2,6})([\/\w-]*)*\/?\S", tweet):
-                classification += " Link "
-            if re.search("@+", tweet):
-                classification += " Mention"
+                tweet_list.append([tweet, "Link"])
 
-            classification = "Simple Tweet" if classification == "" \
-                else classification
+            elif re.search("@+", tweet):
+                tweet_list.append([tweet, " Mention"])
 
-            print(str(tweet) + " " + classification + "\n")
-            classification = ""
+            else:
+                tweet_list.append([tweet, "Simple Tweet"])
+
+        return tweet_list

@@ -2,19 +2,24 @@ class TweetExtractor:
 
     def __init__(self, file_name):
         self.file_name = file_name
+        self.input_file = ""
+        self.input_file_list = []
 
     def file_opener(self):
-        global input_file, input_file_list
+        """Tweet Loading
+
+           Extracts all the tweets and puts them in a list
+        """
         try:
-            input_file = open(self.file_name, "r")
+            self.input_file = open(self.file_name, "r")
         except IOError:
             print("Could not open file")
         else:
-            input_file_list = input_file.readlines()
+            self.input_file_list = self.input_file.readlines()
         finally:
-            input_file.close()
+            self.input_file.close()
 
-        return input_file_list
+        return self.input_file_list
 
     def get_tweets(self):
         tweet_list = self.file_opener()
