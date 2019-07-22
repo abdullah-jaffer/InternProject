@@ -19,7 +19,9 @@ def main():
 
     tweet_index = 0
     while tweet_index < len(tweet_list):
-        print(tweet_list[tweet_index][0] + "  ||  classification: " + tweet_list[tweet_index][1] + "  || tweet number: " + str(tweet_index+1)+" ||")
+        print(tweet_list[tweet_index][0] + "  ||  classification: " +
+              tweet_list[tweet_index][1] + "  || tweet number: " +
+              str(tweet_index+1)+" ||")
         tweet_index = tweet_index + 1
 
 
