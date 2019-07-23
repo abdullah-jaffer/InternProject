@@ -1,0 +1,7 @@
+ddt==1.2.1
+pep8==1.7.1
+pyRFC3339==1.0
+python-apt==1.6.4
+system-service==0.3
+systemd-python==234
+ubuntu-drivers-common==0.0.0
