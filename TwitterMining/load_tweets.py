@@ -4,6 +4,7 @@ class TweetExtractor:
         self.file_name = file_name
         self.input_file = ""
         self.input_file_list = []
+        self.file_opener()
 
     def file_opener(self):
         """Tweet Loading
@@ -19,8 +20,6 @@ class TweetExtractor:
         finally:
             self.input_file.close()
 
-        return self.input_file_list
-
     def get_tweets(self):
-        tweet_list = self.file_opener()
+        tweet_list = self.input_file_list
         return tweet_list
