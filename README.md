@@ -1,2 +1,2 @@
 # InternProject
-Twiiter tweet analyzer
+Various small tasks done while on my Intenrship
