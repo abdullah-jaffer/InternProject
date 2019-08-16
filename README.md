@@ -1,2 +1,2 @@
 # InternProject
-News API
+Various small tasks done while on my Intenrship
