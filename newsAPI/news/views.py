@@ -1,7 +1,6 @@
-from django.core import serializers
 from django.http import HttpResponse, JsonResponse, HttpResponseRedirect
 from django.shortcuts import render
-import json
+
 from news.forms import ArticleForm
 from news.models import Article
 
