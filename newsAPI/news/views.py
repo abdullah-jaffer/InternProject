@@ -1,7 +1,7 @@
 from django.core import serializers
 from django.http import HttpResponse, JsonResponse, HttpResponseRedirect
 from django.shortcuts import render
-
+import json
 from news.forms import ArticleForm
 from news.models import Article
 
@@ -12,9 +12,12 @@ def index(request):
 
 def get_news(request):
     news_id = request.GET.get('id', '')
-    article = Article.objects.filter(id=news_id)
-    data = serializers.serialize('json', article)
-    return HttpResponse(data, content_type="application/json")
+    article = Article.objects.filter(id=news_id).values()
+    if article.exists():
+        data = list(article)
+    else:
+        data = {'result': 'error', 'message': 'No article with this id found'}
+    return JsonResponse(data, safe=False)
 
 
 def post_news(request):
