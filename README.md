@@ -1,2 +1,2 @@
 # InternProject
-Twiiter tweet analyzer
+News API
