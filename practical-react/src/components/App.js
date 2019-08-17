@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import './App.css';
 
-class newsAPI extends Component{
+class newsAPI extends Component {
   constructor(){
     super();
     this.state = {
@@ -15,67 +15,38 @@ class newsAPI extends Component{
       author:""
     };
   }
-  handleGet = (event) =>{
-    console.log("Link: " + this.state.link);
-    const url = this.state.link;
-    fetch(url).then(response => response.json())
-    .then(data => this.setState({ result: data }))
-  
-    }
-
-  handlePost = (event) =>{
-    event.preventDefault();
-    var details = {
-          'title':this.state.title, 
-          'pub_date':this.state.pub_date, 
-          'category':this.state.category, 
-          'cover_image':this.state.cover_image,
-          'content':this.state.content,
-          'author':this.state.author
-  };
-
-  var formBody = [];
-  for (var property in details) {
-    var encodedKey = encodeURIComponent(property);
-    var encodedValue = encodeURIComponent(details[property]);
-    formBody.push(encodedKey + "=" + encodedValue);
-  }
-  formBody = formBody.join("&");
-
-  fetch('http://127.0.0.1:8000/news/post_article/', {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8'
-    },
-    body: formBody
-  })
-  
-    }
-  handleLinkChange = (event) =>{
+ 
+  handleLinkChange = ( event ) =>{
     this.setState({link: event.target.value});
   }
 
-  handleTitleChange = (event) =>{
+  handleTitleChange = ( event ) =>{
     this.setState({title: event.target.value});
   }
-  handlePubDateChange = (event) =>{
+
+  handlePubDateChange = ( event ) =>{
     this.setState({pub_date: event.target.value});
   }
-  handleCategoryChange = (event) =>{
+
+  handleCategoryChange = ( event ) =>{
     this.setState({category: event.target.value});
   }
-  handleImageChange = (event) =>{
+
+  handleImageChange = ( event ) =>{
     this.setState({cover_image: event.target.value});
   }
-  handleContentChange = (event) =>{
+
+  handleContentChange = ( event ) =>{
     this.setState({content: event.target.value});
   }
-  handleAuthorChange = (event) =>{
+
+  handleAuthorChange = ( event ) =>{
     this.setState({author: event.target.value});
   }
-    render (){
-      const { result } = this.state;
-      return (
+
+  render (){
+    const { result } = this.state;
+    return (
         <div className="App">
          <h1>News API</h1>
          {this.state.link}
@@ -100,6 +71,44 @@ class newsAPI extends Component{
         </div>
       );
     }
+
+    handleGet = ( event ) =>{
+      const url = this.state.link;
+      fetch(url).then(response => response.json())
+      .then(data => this.setState({ result: data }))
+    
+      }
+  
+    handlePost = ( event ) =>{
+      event.preventDefault();
+      let details = {
+            'title':this.state.title, 
+            'pub_date':this.state.pub_date, 
+            'category':this.state.category, 
+            'cover_image':this.state.cover_image,
+            'content':this.state.content,
+            'author':this.state.author
+    };
+  
+    let formBody = [];
+
+    for (let property in details) {
+      let encodedKey = encodeURIComponent(property);
+      let encodedValue = encodeURIComponent(details[property]);
+      formBody.push(encodedKey + "=" + encodedValue);
+    }
+
+    formBody = formBody.join("&");
+  
+    fetch('http://127.0.0.1:8000/news/post_article/', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8'
+      },
+      body: formBody
+    })
+    
+      }
 }
 
 
