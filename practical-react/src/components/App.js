@@ -1,6 +1,6 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 import './App.css';
-
+import constants from './constants';
 class newsAPI extends Component {
   constructor(){
     super();
@@ -100,7 +100,7 @@ class newsAPI extends Component {
 
     formBody = formBody.join("&");
   
-    fetch('http://127.0.0.1:8000/news/post_article/', {
+    fetch(constants.BASE_URL + constants.POST_ARTICLE, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8'
