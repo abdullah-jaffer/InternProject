@@ -1,2 +1,2 @@
 # InternProject
-Various small tasks done while on my Intenrship
+Various python and javascript code snippets
