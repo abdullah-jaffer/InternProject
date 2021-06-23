@@ -1,2 +1,2 @@
-# InternProject
-Various python and javascript code snippets
+# Small scale python snippets
+Various python(some javascript) code snippets
